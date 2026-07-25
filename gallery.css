@@ -152,3 +152,54 @@ grid-template-columns:repeat(4,1fr);
 }
 
 }
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+
+.popup img{
+    max-width:90%;
+    max-height:85%;
+    border-radius:20px;
+}
+
+
+.popup.active{
+    display:flex;
+}
+
+.booking{
+
+position:fixed;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:90%;
+max-width:350px;
+
+background:#d45b72;
+
+color:white;
+
+padding:15px;
+
+border-radius:30px;
+
+text-align:center;
+
+text-decoration:none;
+
+z-index:1000;
+
+}
