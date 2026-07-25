@@ -6,27 +6,24 @@ const items = document.querySelectorAll(".item");
 
 buttons.forEach(button => {
 
-    button.addEventListener("click", ()=>{
+    button.addEventListener("click", () => {
 
-        let filter = button.dataset.filter;
+        const filter = button.dataset.filter;
 
 
-        items.forEach(item=>{
-
+        items.forEach(item => {
 
             if(filter === "all" || item.classList.contains(filter)){
 
-                item.style.display="block";
+                item.style.display = "block";
 
             } else {
 
-                item.style.display="none";
+                item.style.display = "none";
 
             }
 
-
         });
-
 
     });
 
@@ -35,44 +32,130 @@ buttons.forEach(button => {
 
 
 
-// ОТКРЫТИЕ ФОТО
+// ОКНО ФОТО
 
 const popup = document.querySelector(".popup");
 const popupImg = document.querySelector(".popup img");
 const popupTitle = document.querySelector(".popup h2");
 
-
 const images = document.querySelectorAll(".item img");
 
-
-images.forEach(img=>{
-
-
-img.onclick = ()=>{
+let current = 0;
 
 
-popup.classList.add("active");
 
+function openPhoto(){
 
-popupImg.src = img.src;
+    popup.classList.add("active");
 
+    popupImg.src = images[current].src;
 
-popupTitle.innerHTML =
-img.parentElement.querySelector("h3").innerHTML;
-
+    popupTitle.textContent =
+    images[current]
+    .parentElement
+    .querySelector("h3")
+    .textContent;
 
 }
 
 
 
+// открытие фото
+
+images.forEach((img,index)=>{
+
+    img.addEventListener("click",()=>{
+
+        current = index;
+
+        openPhoto();
+
+    });
+
 });
 
 
 
-// ЗАКРЫТЬ
+// закрыть
 
-document.querySelector(".close").onclick = ()=>{
+document.querySelector(".close")
+.addEventListener("click",()=>{
 
-popup.classList.remove("active");
+    popup.classList.remove("active");
 
-};
+});
+
+
+
+// следующая фотография
+
+document.querySelector(".next")
+.addEventListener("click",()=>{
+
+    current++;
+
+    if(current >= images.length){
+
+        current = 0;
+
+    }
+
+    openPhoto();
+
+});
+
+
+
+// предыдущая фотография
+
+document.querySelector(".prev")
+.addEventListener("click",()=>{
+
+    current--;
+
+    if(current < 0){
+
+        current = images.length - 1;
+
+    }
+
+    openPhoto();
+
+});
+
+
+
+// свайп телефона
+
+let startX = 0;
+
+
+popup.addEventListener("touchstart",(e)=>{
+
+    startX = e.touches[0].clientX;
+
+});
+
+
+
+popup.addEventListener("touchend",(e)=>{
+
+
+    let endX = e.changedTouches[0].clientX;
+
+
+    if(startX - endX > 50){
+
+        document.querySelector(".next").click();
+
+    }
+
+
+    if(endX - startX > 50){
+
+        document.querySelector(".prev").click();
+
+    }
+
+
+});
