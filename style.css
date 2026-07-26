@@ -148,66 +148,69 @@ justify-content:center;
 
 gap:12px;
 
-
 border-radius:35px;
 
-
 text-decoration:none;
-
 
 font-size:18px;
 
 font-weight:500;
 
-
 color:white;
 
-
 background:
-
 linear-gradient(
 135deg,
 #d98a9b,
 #a94b63
 );
 
-
 transition:.35s;
 
-
 box-shadow:
-
 0 10px 20px rgba(200,90,120,.25);
 
 }
 
 
+/* Иконки Font Awesome */
 
-.button span{
+.button i{
 
-font-size:25px;
+font-size:24px;
 
 }
 
 
+
+/* Текст кнопки */
+
+.button span{
+
+font-size:18px;
+
+}
+
+
+
+/* Эффект наведения */
 
 .button:hover{
 
 transform:translateY(-4px);
 
 box-shadow:
-
 0 15px 30px rgba(200,90,120,.35);
 
 }
 
 
 
+/* Instagram */
 
 .instagram{
 
 background:
-
 linear-gradient(
 135deg,
 #f58529,
@@ -219,12 +222,48 @@ linear-gradient(
 
 
 
+/* Facebook */
+
 .facebook{
 
 background:#4267B2;
 
 }
 
+
+
+/* WhatsApp */
+
+.whatsapp{
+
+background:#25D366;
+
+}
+
+
+
+/* Waze / Location */
+
+.location{
+
+background:#d35d78;
+
+}
+
+
+
+/* Gallery */
+
+.gallery-btn{
+
+background:
+linear-gradient(
+135deg,
+#d98a9b,
+#a94b63
+);
+
+}
 
 
 
