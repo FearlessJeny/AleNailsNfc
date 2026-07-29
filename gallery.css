@@ -362,3 +362,14 @@ box-shadow:0 0 0 0 rgba(37,211,102,0);
 }
 
 }
+
+
+/* Скрыть стрелки Fancybox */
+.fancybox__nav{
+    display:none !important;
+}
+
+.f-button.is-prev,
+.f-button.is-next{
+    display:none !important;
+}
