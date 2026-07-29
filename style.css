@@ -368,3 +368,21 @@ transition:.5s;
 transform:scale(1.05);
 
 }
+
+.hero-photo::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+180deg,
+rgba(255,255,255,.15),
+rgba(255,248,250,.35)
+);
+
+}
